@@ -47,3 +47,35 @@ penguin_plot =
   geom_point()
 
 penguin_plot
+```
+
+## Problem 2
+
+```{r}
+problem2_df =
+  tibble(
+    random_sample = rnorm(10),
+    sample_positive = random_sample > 0,
+    character_vector = c(
+      "a", "b", "c", "d", "e",
+      "f", "g", "h", "i", "j"
+    ),
+    factor_vector = factor(
+      c(
+        "A", "B", "C", "A", "B",
+        "C", "A", "B", "C", "A"
+      )
+    )
+  )
+
+problem2_df
+```
+
+```{r}
+mean(pull(problem2_df, random_sample))
+mean(pull(problem2_df, sample_positive))
+mean(pull(problem2_df, character_vector))
+mean(pull(problem2_df, factor_vector))
+```
+
+

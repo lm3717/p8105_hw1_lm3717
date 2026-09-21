@@ -55,7 +55,7 @@ penguin_plot
     ## Warning: Removed 2 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](github_document_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](homework_1_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## Problem 2
 
@@ -82,28 +82,28 @@ problem2_df
     ## # A tibble: 10 × 4
     ##    random_sample sample_positive character_vector factor_vector
     ##            <dbl> <lgl>           <chr>            <fct>        
-    ##  1         0.439 TRUE            a                A            
-    ##  2        -0.227 FALSE           b                B            
-    ##  3        -0.613 FALSE           c                C            
-    ##  4         0.837 TRUE            d                A            
-    ##  5         0.419 TRUE            e                B            
-    ##  6         1.57  TRUE            f                C            
-    ##  7        -0.907 FALSE           g                A            
-    ##  8        -1.57  FALSE           h                B            
-    ##  9         2.02  TRUE            i                C            
-    ## 10        -0.749 FALSE           j                A
+    ##  1        -0.314 FALSE           a                A            
+    ##  2         0.947 TRUE            b                B            
+    ##  3         1.21  TRUE            c                C            
+    ##  4         1.76  TRUE            d                A            
+    ##  5         2.70  TRUE            e                B            
+    ##  6         0.398 TRUE            f                C            
+    ##  7        -0.935 FALSE           g                A            
+    ##  8         2.11  TRUE            h                B            
+    ##  9        -0.675 FALSE           i                C            
+    ## 10         0.709 TRUE            j                A
 
 ``` r
 mean(pull(problem2_df, random_sample))
 ```
 
-    ## [1] 0.1219892
+    ## [1] 0.7911901
 
 ``` r
 mean(pull(problem2_df, sample_positive))
 ```
 
-    ## [1] 0.5
+    ## [1] 0.7
 
 ``` r
 mean(pull(problem2_df, character_vector))
