@@ -51,6 +51,8 @@ penguin_plot
 
 ## Problem 2
 
+### Dataframe
+
 ```{r}
 problem2_df =
   tibble(
@@ -71,11 +73,24 @@ problem2_df =
 problem2_df
 ```
 
+### Mean Values
+
 ```{r}
 mean(pull(problem2_df, random_sample))
 mean(pull(problem2_df, sample_positive))
 mean(pull(problem2_df, character_vector))
 mean(pull(problem2_df, factor_vector))
 ```
+
+The mean can be correctly calculated for the numeric and logical variables. For the logical variable, R treats TRUE as 1 and FALSE as 0, so the mean represents the proportion of TRUE values. The character and factor variables do not produce viable means, which is expected.
+
+```{r, results = "hide", warning = FALSE}
+as.numeric(pull(problem2_df, sample_positive))
+as.numeric(pull(problem2_df, character_vector))
+as.numeric(pull(problem2_df, factor_vector))
+```
+
+Converting the logical variable to numeric changes TRUE to 1 and FALSE to 0. The character variable cannot be converted to numeric values, so the conversion produces NAs. The factor variable is converted to the numeric codes corresponding to its factor levels. This helps explain why the mean works for logical variables but not directly for character or factor variables.
+
 
 

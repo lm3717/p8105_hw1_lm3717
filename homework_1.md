@@ -59,6 +59,8 @@ penguin_plot
 
 ## Problem 2
 
+### Dataframe
+
 ``` r
 problem2_df =
   tibble(
@@ -82,28 +84,30 @@ problem2_df
     ## # A tibble: 10 × 4
     ##    random_sample sample_positive character_vector factor_vector
     ##            <dbl> <lgl>           <chr>            <fct>        
-    ##  1        -0.314 FALSE           a                A            
-    ##  2         0.947 TRUE            b                B            
-    ##  3         1.21  TRUE            c                C            
-    ##  4         1.76  TRUE            d                A            
-    ##  5         2.70  TRUE            e                B            
-    ##  6         0.398 TRUE            f                C            
-    ##  7        -0.935 FALSE           g                A            
-    ##  8         2.11  TRUE            h                B            
-    ##  9        -0.675 FALSE           i                C            
-    ## 10         0.709 TRUE            j                A
+    ##  1       -1.26   FALSE           a                A            
+    ##  2        0.0895 TRUE            b                B            
+    ##  3       -0.541  FALSE           c                C            
+    ##  4        0.974  TRUE            d                A            
+    ##  5       -1.09   FALSE           e                B            
+    ##  6        0.547  TRUE            f                C            
+    ##  7        1.09   TRUE            g                A            
+    ##  8       -0.610  FALSE           h                B            
+    ##  9        0.558  TRUE            i                C            
+    ## 10       -0.327  FALSE           j                A
+
+### Mean Values
 
 ``` r
 mean(pull(problem2_df, random_sample))
 ```
 
-    ## [1] 0.7911901
+    ## [1] -0.05706278
 
 ``` r
 mean(pull(problem2_df, sample_positive))
 ```
 
-    ## [1] 0.7
+    ## [1] 0.5
 
 ``` r
 mean(pull(problem2_df, character_vector))
@@ -122,3 +126,21 @@ mean(pull(problem2_df, factor_vector))
     ## numeric or logical: returning NA
 
     ## [1] NA
+
+The mean can be correctly calculated for the numeric and logical
+variables. For the logical variable, R treats TRUE as 1 and FALSE as 0,
+so the mean represents the proportion of TRUE values. The character and
+factor variables do not produce viable means, which is expected.
+
+``` r
+as.numeric(pull(problem2_df, sample_positive))
+as.numeric(pull(problem2_df, character_vector))
+as.numeric(pull(problem2_df, factor_vector))
+```
+
+Converting the logical variable to numeric changes TRUE to 1 and FALSE
+to 0. The character variable cannot be converted to numeric values, so
+the conversion produces NAs. The factor variable is converted to the
+numeric codes corresponding to its factor levels. This helps explain why
+the mean works for logical variables but not directly for character or
+factor variables.
