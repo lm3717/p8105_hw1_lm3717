@@ -2,29 +2,30 @@
 title: "Homework 1"
 author: "Lina Marcinczyk"
 date: "2026-09-21"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Problem 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+data("penguins", package = "palmerpenguins")
 ```
 
-## Including Plots
+### Description of the pengiuns dataset
 
-You can also embed plots, for example:
+The `penguins` dataset contains measurements on penguins from three species:
+Adelie, Chinstrap, and Gentoo. Important variables include species, island,
+bill length, bill depth, flipper length, body mass, sex, and year.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
+
+
+
+
