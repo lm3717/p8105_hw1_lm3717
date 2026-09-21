@@ -9,6 +9,10 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse) 
+```
+
 ## Problem 1
 
 
@@ -19,13 +23,27 @@ data("penguins", package = "palmerpenguins")
 ### Description of the pengiuns dataset
 
 The `penguins` dataset contains measurements on penguins from three species:
-Adelie, Chinstrap, and Gentoo. Important variables include species, island,
-bill length, bill depth, flipper length, body mass, sex, and year.
+`r paste(unique(penguins$species), collapse = ", ")`.
+Important variables include species, island, bill length, bill depth,
+flipper length, body mass, sex, and year.
 
 The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns
 
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 
+### Scatterplot
 
+```{r}
 
+penguin_plot =
+  ggplot(
+    penguins,
+    aes(
+      x = bill_length_mm,
+      y = flipper_length_mm,
+      color = species
+    )
+  ) +
+  geom_point()
 
+penguin_plot
