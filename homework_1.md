@@ -4,19 +4,8 @@ Lina Marcinczyk
 2026-09-21
 
 ``` r
-library(tidyverse) 
+library(tidyverse)
 ```
-
-    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.2.1     ✔ readr     2.2.0
-    ## ✔ forcats   1.0.1     ✔ stringr   1.6.0
-    ## ✔ ggplot2   4.0.3     ✔ tibble    3.3.1
-    ## ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-    ## ✔ purrr     1.2.2     
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 ## Problem 1
 
@@ -24,14 +13,14 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
-### Description of the pengiuns dataset
+### Description of the ‘penguins’ dataset
 
 The `penguins` dataset contains measurements on penguins from three
 species: Adelie, Gentoo, Chinstrap. Important variables include species,
 island, bill length, bill depth, flipper length, body mass, sex, and
 year.
 
-The dataset contains 344 rows and 8 columns
+The dataset contains 344 rows and 8 columns.
 
 The mean flipper length is 200.9152047 mm.
 
@@ -84,16 +73,16 @@ problem2_df
     ## # A tibble: 10 × 4
     ##    random_sample sample_positive character_vector factor_vector
     ##            <dbl> <lgl>           <chr>            <fct>        
-    ##  1       -1.26   FALSE           a                A            
-    ##  2        0.0895 TRUE            b                B            
-    ##  3       -0.541  FALSE           c                C            
-    ##  4        0.974  TRUE            d                A            
-    ##  5       -1.09   FALSE           e                B            
-    ##  6        0.547  TRUE            f                C            
-    ##  7        1.09   TRUE            g                A            
-    ##  8       -0.610  FALSE           h                B            
-    ##  9        0.558  TRUE            i                C            
-    ## 10       -0.327  FALSE           j                A
+    ##  1      -1.05    FALSE           a                A            
+    ##  2       1.08    TRUE            b                B            
+    ##  3      -0.428   FALSE           c                C            
+    ##  4       0.765   TRUE            d                A            
+    ##  5      -0.216   FALSE           e                B            
+    ##  6       1.26    TRUE            f                C            
+    ##  7      -0.00320 FALSE           g                A            
+    ##  8       0.389   TRUE            h                B            
+    ##  9       2.16    TRUE            i                C            
+    ## 10       0.656   TRUE            j                A
 
 ### Mean Values
 
@@ -101,13 +90,13 @@ problem2_df
 mean(pull(problem2_df, random_sample))
 ```
 
-    ## [1] -0.05706278
+    ## [1] 0.4602322
 
 ``` r
 mean(pull(problem2_df, sample_positive))
 ```
 
-    ## [1] 0.5
+    ## [1] 0.6
 
 ``` r
 mean(pull(problem2_df, character_vector))
@@ -130,7 +119,7 @@ mean(pull(problem2_df, factor_vector))
 The mean can be correctly calculated for the numeric and logical
 variables. For the logical variable, R treats TRUE as 1 and FALSE as 0,
 so the mean represents the proportion of TRUE values. The character and
-factor variables do not produce viable means, which is expected.
+factor variables do not produce numerical means, which is expected.
 
 ``` r
 as.numeric(pull(problem2_df, sample_positive))

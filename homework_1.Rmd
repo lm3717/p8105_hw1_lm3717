@@ -9,8 +9,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-library(tidyverse) 
+```{r, message = FALSE}
+library(tidyverse)
 ```
 
 ## Problem 1
@@ -20,14 +20,14 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
-### Description of the pengiuns dataset
+### Description of the 'penguins' dataset
 
 The `penguins` dataset contains measurements on penguins from three species:
 `r paste(unique(penguins$species), collapse = ", ")`.
 Important variables include species, island, bill length, bill depth,
 flipper length, body mass, sex, and year.
 
-The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns
+The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 
@@ -47,6 +47,10 @@ penguin_plot =
   geom_point()
 
 penguin_plot
+```
+
+```{r, include = FALSE}
+ggsave("penguin_scatterplot.png", plot = penguin_plot)
 ```
 
 ## Problem 2
@@ -82,7 +86,7 @@ mean(pull(problem2_df, character_vector))
 mean(pull(problem2_df, factor_vector))
 ```
 
-The mean can be correctly calculated for the numeric and logical variables. For the logical variable, R treats TRUE as 1 and FALSE as 0, so the mean represents the proportion of TRUE values. The character and factor variables do not produce viable means, which is expected.
+The mean can be correctly calculated for the numeric and logical variables. For the logical variable, R treats TRUE as 1 and FALSE as 0, so the mean represents the proportion of TRUE values. The character and factor variables do not produce numerical means, which is expected.
 
 ```{r, results = "hide", warning = FALSE}
 as.numeric(pull(problem2_df, sample_positive))
